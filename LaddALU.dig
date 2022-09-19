@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head data-suburl="">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>CIS356/SingleCycleMIPS - ALU.dig at master -  SingleCycleMIPS - SUNY Potsdam CS Department Gitea Git Server</title>
+	<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+	
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+				
+				console.info('ServiceWorker registration successful with scope: ', registration.scope);
+			}, function(err) {
+				
+				console.info('ServiceWorker registration failed: ', err);
+			});
+		}
+	</script>
+	
+	<meta name="theme-color" content="#6cc644">
+	<meta name="author" content="CIS356" />
+	<meta name="description" content="SingleCycleMIPS" />
+	<meta name="keywords" content="go,git,self-hosted,gitea">
+	<meta name="referrer" content="no-referrer" />
+	<meta name="_csrf" content="tBpSt-_PPYUe8U8KjoK_vQk6heQ6MTU4Njg3NDg5Njc3Mjg5NzQ0OA" />
+	<meta name="_suburl" content="" />
+	
+		<meta name="_uid" content="92" />
+	
+	
+	
+
+
+	<script>
+	/*
+	@licstart  The following is the entire license notice for the
+        JavaScript code in this page.
+
+	Copyright (c) 2016 The Gitea Authors
+	Copyright (c) 2015 The Gogs Authors
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+	---
+	Licensing information for additional javascript libraries can be found at:
+	  {{StaticUrlPrefix}}/vendor/librejs.html
+
+	@licend  The above is the entire license notice
+        for the JavaScript code in this page.
+	*/
+	</script>
+
+	<link rel="shortcut icon" href="/img/favicon.png" />
+	<link rel="mask-icon" href="/img/gitea-safari.svg" color="#609926">
+	<link rel="preload" href="/vendor/assets/font-awesome/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="/vendor/assets/font-awesome/css/font-awesome.min.css"></noscript>
+	<link rel="stylesheet" href="/vendor/assets/octicons/octicons.min.css">
+
+
+
+
+
+	
+	<link rel="stylesheet" href="/vendor/plugins/fomantic/semantic.min.css?v=fc7274467e96507fad7018bd7d830513">
+	<link rel="stylesheet" href="/css/index.css?v=fc7274467e96507fad7018bd7d830513">
+	<noscript>
+		<style>
+			.dropdown:hover > .menu { display: block; }
+			.ui.secondary.menu .dropdown.item > .menu { margin-top: 0; }
+		</style>
+	</noscript>
+
+
+	<link rel="stylesheet" href="/vendor/plugins/highlight/github.css">
+
+
+
+
+
+	<style class="list-search-style"></style>
+
+	<script src="/vendor/plugins/promise-polyfill/polyfill.min.js"></script>
+	<script src="/vendor/plugins/cssrelpreload/loadCSS.min.js"></script>
+	<script src="/vendor/plugins/cssrelpreload/cssrelpreload.min.js"></script>
+
+	
+		<meta property="og:title" content="SingleCycleMIPS" />
+		<meta property="og:url" content="http://cs-devel.potsdam.edu/CIS356/SingleCycleMIPS" />
+		
+	
+	<meta property="og:type" content="object" />
+	<meta property="og:image" content="http://cs-devel.potsdam.edu/user/avatar/CIS356/-1" />
+
+<meta property="og:site_name" content="SUNY Potsdam CS Department Gitea Git Server" />
+
+	
+
+
+</head>
+<body>
+	
+
+	<div class="full height">
+		<noscript>This website works better with JavaScript.</noscript>
+
+		
+
+		
+			<div class="ui top secondary stackable main menu following bar light">
+				<div class="ui container" id="navbar">
+	<div class="item brand" style="justify-content: space-between;">
+		<a href="/">
+			<img class="ui mini image" src="/img/gitea-sm.png">
+		</a>
+		<div class="ui basic icon button mobile-only" id="navbar-expand-toggle">
+			<i class="sidebar icon"></i>
+		</div>
+	</div>
+
+	
+		<a class="item " href="/">Dashboard</a>
+		<a class="item " href="/issues">Issues</a>
+		<a class="item " href="/pulls">Pull Requests</a>
+		<a class="item " href="/milestones">Milestones</a>
+		<a class="item " href="/explore/repos">Explore</a>
+	
+
+	
+
+	
+
+	
+		<div class="right stackable menu">
+			<a href="/notifications" class="item poping up" data-content='Notifications' data-variation="tiny inverted">
+				<span class="text">
+					<i class="fitted octicon octicon-bell"></i>
+					<span class="sr-mobile-only">Notifications</span>
+
+					
+				</span>
+			</a>
+
+			<div class="ui dropdown jump item poping up" data-content="Create…" data-variation="tiny inverted">
+				<span class="text">
+					<i class="fitted octicon octicon-plus"></i>
+					<span class="sr-mobile-only">Create…</span>
+					<i class="fitted octicon octicon-triangle-down not-mobile"></i>
+				</span>
+				<div class="menu">
+					<a class="item" href="/repo/create">
+						<i class="octicon octicon-plus"></i> New Repository
+					</a>
+					<a class="item" href="/repo/migrate">
+						<i class="octicon octicon-repo-clone"></i> New Migration
+					</a>
+					
+					<a class="item" href="/org/create">
+						<i class="octicon octicon-organization"></i> New Organization
+					</a>
+					
+				</div>
+			</div>
+
+			<div class="ui dropdown jump item poping up" tabindex="-1" data-content="Profile and Settings…" data-variation="tiny inverted">
+				<span class="text">
+					<img class="ui tiny avatar image" src="/user/avatar/roseca201/-1">
+					<span class="sr-only">Profile and Settings…</span>
+					<span class="mobile-only">roseca201</span>
+					<i class="fitted octicon octicon-triangle-down not-mobile" tabindex="-1"></i>
+				</span>
+				<div class="menu user-menu" tabindex="-1">
+					<div class="ui header">
+						Signed in as <strong>roseca201</strong>
+					</div>
+
+					<div class="divider"></div>
+					<a class="item" href="/roseca201">
+						<i class="octicon octicon-person"></i>
+						Profile
+					</a>
+					<a class="item" href="/roseca201?tab=stars">
+						<i class="octicon octicon-star"></i>
+						Starred
+					</a>
+					<a class=" item" href="/user/settings">
+						<i class="octicon octicon-settings"></i>
+						Settings
+					</a>
+					<a class="item" target="_blank" rel="noopener noreferrer" href="https://docs.gitea.io">
+						<i class="octicon octicon-question"></i>
+						Help
+					</a>
+					
+
+					<div class="divider"></div>
+					<a class="item" href="/user/logout">
+						<i class="octicon octicon-sign-out"></i>
+						Sign Out
+					</a>
+				</div>
+			</div>
+		</div>
+
+	
+</div>
+
+			</div>
+		
+
+
+<div class="repository file list">
+	<div class="header-wrapper">
+
+	<div class="ui container">
+		<div class="repo-header">
+			<div class="ui huge breadcrumb repo-title">
+				
+				<i class="mega-octicon octicon-repo"></i>
+				
+				<a href="/CIS356">CIS356</a>
+				<div class="divider"> / </div>
+				<a href="/CIS356/SingleCycleMIPS">SingleCycleMIPS</a>
+				
+				
+				
+				
+				
+				
+			</div>
+			
+				<div class="repo-buttons">
+					<div class="ui labeled button" tabindex="0">
+						<a class="ui compact basic button" href="/CIS356/SingleCycleMIPS/action/unwatch?redirect_to=%2fCIS356%2fSingleCycleMIPS%2fsrc%2fbranch%2fmaster%2fALU.dig">
+							<i class="icon fa-eye"></i>Unwatch
+						</a>
+						<a class="ui basic label" href="/CIS356/SingleCycleMIPS/watchers">
+							16
+						</a>
+					</div>
+					<div class="ui labeled button" tabindex="0">
+						<a class="ui compact basic button" href="/CIS356/SingleCycleMIPS/action/star?redirect_to=%2fCIS356%2fSingleCycleMIPS%2fsrc%2fbranch%2fmaster%2fALU.dig">
+							<i class="icon star outline"></i>Star
+						</a>
+						<a class="ui basic label" href="/CIS356/SingleCycleMIPS/stars">
+							0
+						</a>
+					</div>
+					
+						<div class="ui labeled button " tabindex="0">
+							<a class="ui compact basic button " href="/repo/fork/600" data-position="top center" data-variation="tiny">
+								<i class="octicon octicon-repo-forked"></i>Fork
+							</a>
+							<a class="ui basic label" href="/CIS356/SingleCycleMIPS/forks">
+								0
+							</a>
+						</div>
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="ui tabs container">
+		
+			<div class="ui tabular stackable menu navbar">
+				
+				<a class="active item" href="/CIS356/SingleCycleMIPS">
+					<i class="octicon octicon-code"></i> Code
+				</a>
+				
+
+				
+					<a class=" item" href="/CIS356/SingleCycleMIPS/issues">
+						<i class="octicon octicon-issue-opened"></i> Issues <span class="ui gray small label">0</span>
+					</a>
+				
+
+				
+
+				
+					<a class=" item" href="/CIS356/SingleCycleMIPS/pulls">
+						<i class="octicon octicon-git-pull-request"></i> Pull Requests <span class="ui gray small label">0</span>
+					</a>
+				
+
+				
+				<a class=" item" href="/CIS356/SingleCycleMIPS/releases">
+					<i class="octicon octicon-tag"></i> Releases <span class="ui gray small label">0</span>
+				</a>
+				
+
+				
+					<a class=" item" href="/CIS356/SingleCycleMIPS/wiki" >
+						<i class="octicon octicon-book"></i> Wiki
+					</a>
+				
+
+				
+					<a class=" item" href="/CIS356/SingleCycleMIPS/activity">
+						<i class="octicon octicon-pulse"></i> Activity
+					</a>
+				
+
+				
+
+				
+			</div>
+		
+	</div>
+	<div class="ui tabs divider"></div>
+</div>
+
+	<div class="ui container">
+		
+
+
+
+		<div class="ui repo-description">
+			<div id="repo-desc">
+				
+				<a class="link" href=""></a>
+			</div>
+			
+		</div>
+		<div class="ui" id="repo-topics">
+		
+		
+		</div>
+		
+		<div class="hide" id="validate_prompt">
+			<span id="count_prompt">You can not select more than 25 topics</span>
+			<span id="format_prompt">Topics must start with a letter or number, can include dashes (&#39;-&#39;) and can be up to 35 characters long.</span>
+		</div>
+		
+		<div class="ui segment sub-menu">
+	<div class="ui two horizontal center link list">
+		
+			<div class="item">
+				<a class="ui" href="/CIS356/SingleCycleMIPS/commits/branch/master"><i class="octicon octicon-history"></i> <b>1</b> Commit</a>
+			</div>
+		
+		
+			<div class="item">
+				<a class="ui" href="/CIS356/SingleCycleMIPS/branches/"><i class="octicon octicon-git-branch"></i> <b>1</b> Branch</a>
+			</div>
+			<div class="item">
+				<a class="ui" href="#"><i class="octicon octicon-database"></i> <b>23KB</b></a>
+			</div>
+		
+	</div>
+</div>
+
+		<div class="ui stackable secondary menu mobile--margin-between-items mobile--no-negative-margins">
+			<div class="fitted item choose reference">
+	<div class="ui floating filter dropdown custom" data-can-create-branch="false" data-no-results="No results found.">
+		<div class="ui basic small compact button" @click="menuVisible = !menuVisible" @keyup.enter="menuVisible = !menuVisible">
+			<span class="text">
+				<i class="octicon octicon-git-branch"></i>
+				Branch:
+				<strong>master</strong>
+			</span>
+			<i class="dropdown icon"></i>
+		</div>
+		<div class="data" style="display: none" data-mode="branches">
+			
+				<div class="item branch selected" data-url="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig">master</div>
+			
+			
+		</div>
+		<div class="menu transition" :class="{visible: menuVisible}" v-if="menuVisible" v-cloak>
+			<div class="ui icon search input">
+				<i class="filter icon"></i>
+				<input name="search" ref="searchField" v-model="searchTerm" @keydown="keydown($event)" placeholder="Filter branch or tag...">
+			</div>
+			<div class="header branch-tag-choice">
+				<div class="ui grid">
+					<div class="two column row">
+						<a class="reference column" href="#" @click="mode = 'branches'; focusSearchField()">
+							<span class="text" :class="{black: mode == 'branches'}">
+								<i class="octicon octicon-git-branch"></i> Branches
+							</span>
+						</a>
+						<a class="reference column" href="#" @click="mode = 'tags'; focusSearchField()">
+							<span class="text" :class="{black: mode == 'tags'}">
+								<i class="reference tags icon"></i> Tags
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="scrolling menu" ref="scrollContainer">
+				<div v-for="(item, index) in filteredItems" :key="item.name" class="item" :class="{selected: item.selected, active: active == index}" @click="selectItem(item)" :ref="'listItem' + index">${ item.name }</div>
+				<div class="item" v-if="showCreateNewBranch" :class="{active: active == filteredItems.length}" :ref="'listItem' + filteredItems.length">
+					<a href="#" @click="createNewBranch()">
+						<div>
+							<i class="octicon octicon-git-branch"></i>
+							Create branch <strong>${ searchTerm }</strong>
+						</div>
+						<div class="text small">
+							
+								from &#39;master&#39;
+							
+						</div>
+					</a>
+					<form ref="newBranchForm" action="/CIS356/SingleCycleMIPS/branches/_new/branch/master" method="post">
+						<input type="hidden" name="_csrf" value="tBpSt-_PPYUe8U8KjoK_vQk6heQ6MTU4Njg3NDg5Njc3Mjg5NzQ0OA">
+						<input type="hidden" name="new_branch_name" v-model="searchTerm">
+					</form>
+				</div>
+			</div>
+			<div class="message" v-if="showNoResults">${ noResults }</div>
+		</div>
+	</div>
+</div>
+
+			
+			
+			
+			
+				<div class="fitted item"><span class="ui breadcrumb repo-path"><a class="section" href="/CIS356/SingleCycleMIPS/src/branch/master" title="SingleCycleMIPS">SingleCycleMIPS</a><span class="divider">/</span><span class="active section" title="ALU.dig">ALU.dig</span></span></div>
+			
+			<div class="right fitted item" id="file-buttons">
+				<div class="ui tiny blue buttons">
+					
+						
+						
+					
+					
+				</div>
+
+			</div>
+			<div class="fitted item">
+				
+			</div>
+			<div class="fitted item">
+
+				
+				
+			</div>
+		</div>
+		
+			<div class="tab-size-8 non-diff-file-content">
+	<h4 class="file-header ui top attached header">
+		<div class="file-header-left">
+			
+				<div class="file-info text grey normal mono">
+					
+						<div class="file-info-entry">
+							105 lines
+						</div>
+					
+					
+						<div class="file-info-entry">
+							2.5KB
+						</div>
+					
+					
+				</div>
+			
+		</div>
+		
+		<div class="file-header-right">
+			<div class="ui right file-actions">
+				<div class="ui buttons">
+					<a class="ui button" href="/CIS356/SingleCycleMIPS/raw/branch/master/ALU.dig">Raw</a>
+					
+						<a class="ui button" href="/CIS356/SingleCycleMIPS/src/commit/6a7c43c3d7075dc73aa5f77af5d36c9524645ee7/ALU.dig">Permalink</a>
+					
+					
+						<a class="ui button" href="/CIS356/SingleCycleMIPS/blame/branch/master/ALU.dig">Blame</a>
+					
+					<a class="ui button" href="/CIS356/SingleCycleMIPS/commits/branch/master/ALU.dig">History</a>
+				</div>
+				
+					
+						<i class="octicon octicon-pencil btn-octicon poping up disabled" data-content="You must fork this repository to make or propose changes to this file." data-position="bottom center" data-variation="tiny inverted"></i>
+					
+					
+						<i class="octicon octicon-trashcan btn-octicon poping up disabled" data-content="You must have write access to make or propose changes to this file." data-position="bottom center" data-variation="tiny inverted"></i>
+					
+				
+			</div>
+		</div>
+		
+	</h4>
+	<div class="ui attached table unstackable segment">
+		<div class="file-view code-view has-emoji">
+			
+				<table>
+					<tbody>
+						<tr>
+						
+							<td class="lines-num"><span id="L1" data-line-number="1"></span><span id="L2" data-line-number="2"></span><span id="L3" data-line-number="3"></span><span id="L4" data-line-number="4"></span><span id="L5" data-line-number="5"></span><span id="L6" data-line-number="6"></span><span id="L7" data-line-number="7"></span><span id="L8" data-line-number="8"></span><span id="L9" data-line-number="9"></span><span id="L10" data-line-number="10"></span><span id="L11" data-line-number="11"></span><span id="L12" data-line-number="12"></span><span id="L13" data-line-number="13"></span><span id="L14" data-line-number="14"></span><span id="L15" data-line-number="15"></span><span id="L16" data-line-number="16"></span><span id="L17" data-line-number="17"></span><span id="L18" data-line-number="18"></span><span id="L19" data-line-number="19"></span><span id="L20" data-line-number="20"></span><span id="L21" data-line-number="21"></span><span id="L22" data-line-number="22"></span><span id="L23" data-line-number="23"></span><span id="L24" data-line-number="24"></span><span id="L25" data-line-number="25"></span><span id="L26" data-line-number="26"></span><span id="L27" data-line-number="27"></span><span id="L28" data-line-number="28"></span><span id="L29" data-line-number="29"></span><span id="L30" data-line-number="30"></span><span id="L31" data-line-number="31"></span><span id="L32" data-line-number="32"></span><span id="L33" data-line-number="33"></span><span id="L34" data-line-number="34"></span><span id="L35" data-line-number="35"></span><span id="L36" data-line-number="36"></span><span id="L37" data-line-number="37"></span><span id="L38" data-line-number="38"></span><span id="L39" data-line-number="39"></span><span id="L40" data-line-number="40"></span><span id="L41" data-line-number="41"></span><span id="L42" data-line-number="42"></span><span id="L43" data-line-number="43"></span><span id="L44" data-line-number="44"></span><span id="L45" data-line-number="45"></span><span id="L46" data-line-number="46"></span><span id="L47" data-line-number="47"></span><span id="L48" data-line-number="48"></span><span id="L49" data-line-number="49"></span><span id="L50" data-line-number="50"></span><span id="L51" data-line-number="51"></span><span id="L52" data-line-number="52"></span><span id="L53" data-line-number="53"></span><span id="L54" data-line-number="54"></span><span id="L55" data-line-number="55"></span><span id="L56" data-line-number="56"></span><span id="L57" data-line-number="57"></span><span id="L58" data-line-number="58"></span><span id="L59" data-line-number="59"></span><span id="L60" data-line-number="60"></span><span id="L61" data-line-number="61"></span><span id="L62" data-line-number="62"></span><span id="L63" data-line-number="63"></span><span id="L64" data-line-number="64"></span><span id="L65" data-line-number="65"></span><span id="L66" data-line-number="66"></span><span id="L67" data-line-number="67"></span><span id="L68" data-line-number="68"></span><span id="L69" data-line-number="69"></span><span id="L70" data-line-number="70"></span><span id="L71" data-line-number="71"></span><span id="L72" data-line-number="72"></span><span id="L73" data-line-number="73"></span><span id="L74" data-line-number="74"></span><span id="L75" data-line-number="75"></span><span id="L76" data-line-number="76"></span><span id="L77" data-line-number="77"></span><span id="L78" data-line-number="78"></span><span id="L79" data-line-number="79"></span><span id="L80" data-line-number="80"></span><span id="L81" data-line-number="81"></span><span id="L82" data-line-number="82"></span><span id="L83" data-line-number="83"></span><span id="L84" data-line-number="84"></span><span id="L85" data-line-number="85"></span><span id="L86" data-line-number="86"></span><span id="L87" data-line-number="87"></span><span id="L88" data-line-number="88"></span><span id="L89" data-line-number="89"></span><span id="L90" data-line-number="90"></span><span id="L91" data-line-number="91"></span><span id="L92" data-line-number="92"></span><span id="L93" data-line-number="93"></span><span id="L94" data-line-number="94"></span><span id="L95" data-line-number="95"></span><span id="L96" data-line-number="96"></span><span id="L97" data-line-number="97"></span><span id="L98" data-line-number="98"></span><span id="L99" data-line-number="99"></span><span id="L100" data-line-number="100"></span><span id="L101" data-line-number="101"></span><span id="L102" data-line-number="102"></span><span id="L103" data-line-number="103"></span><span id="L104" data-line-number="104"></span><span id="L105" data-line-number="105"></span></td>
+							<td class="lines-code"><pre><code class=""><ol class="linenums"><li class="L1" rel="L1">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
+</li><li class="L2" rel="L2">&lt;circuit&gt;
+</li><li class="L3" rel="L3">  &lt;version&gt;1&lt;/version&gt;
+</li><li class="L4" rel="L4">  &lt;attributes/&gt;
+</li><li class="L5" rel="L5">  &lt;visualElements&gt;
+</li><li class="L6" rel="L6">    &lt;visualElement&gt;
+</li><li class="L7" rel="L7">      &lt;elementName&gt;In&lt;/elementName&gt;
+</li><li class="L8" rel="L8">      &lt;elementAttributes&gt;
+</li><li class="L9" rel="L9">        &lt;entry&gt;
+</li><li class="L10" rel="L10">          &lt;string&gt;Label&lt;/string&gt;
+</li><li class="L11" rel="L11">          &lt;string&gt;A&lt;/string&gt;
+</li><li class="L12" rel="L12">        &lt;/entry&gt;
+</li><li class="L13" rel="L13">        &lt;entry&gt;
+</li><li class="L14" rel="L14">          &lt;string&gt;Bits&lt;/string&gt;
+</li><li class="L15" rel="L15">          &lt;int&gt;32&lt;/int&gt;
+</li><li class="L16" rel="L16">        &lt;/entry&gt;
+</li><li class="L17" rel="L17">      &lt;/elementAttributes&gt;
+</li><li class="L18" rel="L18">      &lt;pos x=&#34;520&#34; y=&#34;320&#34;/&gt;
+</li><li class="L19" rel="L19">    &lt;/visualElement&gt;
+</li><li class="L20" rel="L20">    &lt;visualElement&gt;
+</li><li class="L21" rel="L21">      &lt;elementName&gt;In&lt;/elementName&gt;
+</li><li class="L22" rel="L22">      &lt;elementAttributes&gt;
+</li><li class="L23" rel="L23">        &lt;entry&gt;
+</li><li class="L24" rel="L24">          &lt;string&gt;Label&lt;/string&gt;
+</li><li class="L25" rel="L25">          &lt;string&gt;B&lt;/string&gt;
+</li><li class="L26" rel="L26">        &lt;/entry&gt;
+</li><li class="L27" rel="L27">        &lt;entry&gt;
+</li><li class="L28" rel="L28">          &lt;string&gt;Bits&lt;/string&gt;
+</li><li class="L29" rel="L29">          &lt;int&gt;32&lt;/int&gt;
+</li><li class="L30" rel="L30">        &lt;/entry&gt;
+</li><li class="L31" rel="L31">      &lt;/elementAttributes&gt;
+</li><li class="L32" rel="L32">      &lt;pos x=&#34;520&#34; y=&#34;460&#34;/&gt;
+</li><li class="L33" rel="L33">    &lt;/visualElement&gt;
+</li><li class="L34" rel="L34">    &lt;visualElement&gt;
+</li><li class="L35" rel="L35">      &lt;elementName&gt;Out&lt;/elementName&gt;
+</li><li class="L36" rel="L36">      &lt;elementAttributes&gt;
+</li><li class="L37" rel="L37">        &lt;entry&gt;
+</li><li class="L38" rel="L38">          &lt;string&gt;Label&lt;/string&gt;
+</li><li class="L39" rel="L39">          &lt;string&gt;C&lt;/string&gt;
+</li><li class="L40" rel="L40">        &lt;/entry&gt;
+</li><li class="L41" rel="L41">        &lt;entry&gt;
+</li><li class="L42" rel="L42">          &lt;string&gt;Bits&lt;/string&gt;
+</li><li class="L43" rel="L43">          &lt;int&gt;32&lt;/int&gt;
+</li><li class="L44" rel="L44">        &lt;/entry&gt;
+</li><li class="L45" rel="L45">      &lt;/elementAttributes&gt;
+</li><li class="L46" rel="L46">      &lt;pos x=&#34;1300&#34; y=&#34;320&#34;/&gt;
+</li><li class="L47" rel="L47">    &lt;/visualElement&gt;
+</li><li class="L48" rel="L48">    &lt;visualElement&gt;
+</li><li class="L49" rel="L49">      &lt;elementName&gt;In&lt;/elementName&gt;
+</li><li class="L50" rel="L50">      &lt;elementAttributes&gt;
+</li><li class="L51" rel="L51">        &lt;entry&gt;
+</li><li class="L52" rel="L52">          &lt;string&gt;Label&lt;/string&gt;
+</li><li class="L53" rel="L53">          &lt;string&gt;Op&lt;/string&gt;
+</li><li class="L54" rel="L54">        &lt;/entry&gt;
+</li><li class="L55" rel="L55">        &lt;entry&gt;
+</li><li class="L56" rel="L56">          &lt;string&gt;Bits&lt;/string&gt;
+</li><li class="L57" rel="L57">          &lt;int&gt;6&lt;/int&gt;
+</li><li class="L58" rel="L58">        &lt;/entry&gt;
+</li><li class="L59" rel="L59">        &lt;entry&gt;
+</li><li class="L60" rel="L60">          &lt;string&gt;rotation&lt;/string&gt;
+</li><li class="L61" rel="L61">          &lt;rotation rotation=&#34;3&#34;/&gt;
+</li><li class="L62" rel="L62">        &lt;/entry&gt;
+</li><li class="L63" rel="L63">      &lt;/elementAttributes&gt;
+</li><li class="L64" rel="L64">      &lt;pos x=&#34;760&#34; y=&#34;240&#34;/&gt;
+</li><li class="L65" rel="L65">    &lt;/visualElement&gt;
+</li><li class="L66" rel="L66">    &lt;visualElement&gt;
+</li><li class="L67" rel="L67">      &lt;elementName&gt;In&lt;/elementName&gt;
+</li><li class="L68" rel="L68">      &lt;elementAttributes&gt;
+</li><li class="L69" rel="L69">        &lt;entry&gt;
+</li><li class="L70" rel="L70">          &lt;string&gt;Label&lt;/string&gt;
+</li><li class="L71" rel="L71">          &lt;string&gt;ShAmt&lt;/string&gt;
+</li><li class="L72" rel="L72">        &lt;/entry&gt;
+</li><li class="L73" rel="L73">        &lt;entry&gt;
+</li><li class="L74" rel="L74">          &lt;string&gt;Bits&lt;/string&gt;
+</li><li class="L75" rel="L75">          &lt;int&gt;5&lt;/int&gt;
+</li><li class="L76" rel="L76">        &lt;/entry&gt;
+</li><li class="L77" rel="L77">        &lt;entry&gt;
+</li><li class="L78" rel="L78">          &lt;string&gt;rotation&lt;/string&gt;
+</li><li class="L79" rel="L79">          &lt;rotation rotation=&#34;3&#34;/&gt;
+</li><li class="L80" rel="L80">        &lt;/entry&gt;
+</li><li class="L81" rel="L81">      &lt;/elementAttributes&gt;
+</li><li class="L82" rel="L82">      &lt;pos x=&#34;880&#34; y=&#34;240&#34;/&gt;
+</li><li class="L83" rel="L83">    &lt;/visualElement&gt;
+</li><li class="L84" rel="L84">    &lt;visualElement&gt;
+</li><li class="L85" rel="L85">      &lt;elementName&gt;In&lt;/elementName&gt;
+</li><li class="L86" rel="L86">      &lt;elementAttributes&gt;
+</li><li class="L87" rel="L87">        &lt;entry&gt;
+</li><li class="L88" rel="L88">          &lt;string&gt;Label&lt;/string&gt;
+</li><li class="L89" rel="L89">          &lt;string&gt;Func&lt;/string&gt;
+</li><li class="L90" rel="L90">        &lt;/entry&gt;
+</li><li class="L91" rel="L91">        &lt;entry&gt;
+</li><li class="L92" rel="L92">          &lt;string&gt;Bits&lt;/string&gt;
+</li><li class="L93" rel="L93">          &lt;int&gt;6&lt;/int&gt;
+</li><li class="L94" rel="L94">        &lt;/entry&gt;
+</li><li class="L95" rel="L95">        &lt;entry&gt;
+</li><li class="L96" rel="L96">          &lt;string&gt;rotation&lt;/string&gt;
+</li><li class="L97" rel="L97">          &lt;rotation rotation=&#34;3&#34;/&gt;
+</li><li class="L98" rel="L98">        &lt;/entry&gt;
+</li><li class="L99" rel="L99">      &lt;/elementAttributes&gt;
+</li><li class="L100" rel="L100">      &lt;pos x=&#34;980&#34; y=&#34;240&#34;/&gt;
+</li><li class="L101" rel="L101">    &lt;/visualElement&gt;
+</li><li class="L102" rel="L102">  &lt;/visualElements&gt;
+</li><li class="L103" rel="L103">  &lt;wires/&gt;
+</li><li class="L104" rel="L104">  &lt;measurementOrdering/&gt;
+</li><li class="L105" rel="L105">&lt;/circuit&gt;</li></ol></code></pre></td>
+						
+						</tr>
+					</tbody>
+				</table>
+			
+		</div>
+	</div>
+</div>
+
+<script>
+function submitDeleteForm() {
+    var message = prompt("delete_confirm_message\n\ndelete_commit_summary", "Delete ''");
+    if (message != null) {
+        $("#delete-message").val(message);
+        $("#delete-file-form").submit()
+    }
+}
+</script>
+
+		
+	</div>
+</div>
+
+
+	
+
+	</div>
+
+	
+
+	<footer>
+	<div class="ui container">
+		<div class="ui left">
+			Powered by Gitea Version: 1.12.0&#43;dev-96-g06cd3e03a Page: <strong>22ms</strong> Template: <strong>3ms</strong>
+		</div>
+		<div class="ui right links">
+			
+			<div class="ui language bottom floating slide up dropdown link item">
+				<i class="world icon"></i>
+				<div class="text">English</div>
+				<div class="menu">
+					
+						<a lang="en-US" class="item active selected" href="#">English</a>
+					
+						<a lang="zh-CN" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=zh-CN">简体中文</a>
+					
+						<a lang="zh-HK" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=zh-HK">繁體中文（香港）</a>
+					
+						<a lang="zh-TW" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=zh-TW">繁體中文（台灣）</a>
+					
+						<a lang="de-DE" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=de-DE">Deutsch</a>
+					
+						<a lang="fr-FR" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=fr-FR">français</a>
+					
+						<a lang="nl-NL" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=nl-NL">Nederlands</a>
+					
+						<a lang="lv-LV" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=lv-LV">latviešu</a>
+					
+						<a lang="ru-RU" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=ru-RU">русский</a>
+					
+						<a lang="uk-UA" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=uk-UA">Українська</a>
+					
+						<a lang="ja-JP" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=ja-JP">日本語</a>
+					
+						<a lang="es-ES" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=es-ES">español</a>
+					
+						<a lang="pt-BR" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=pt-BR">português do Brasil</a>
+					
+						<a lang="pl-PL" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=pl-PL">polski</a>
+					
+						<a lang="bg-BG" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=bg-BG">български</a>
+					
+						<a lang="it-IT" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=it-IT">italiano</a>
+					
+						<a lang="fi-FI" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=fi-FI">suomi</a>
+					
+						<a lang="tr-TR" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=tr-TR">Türkçe</a>
+					
+						<a lang="cs-CZ" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=cs-CZ">čeština</a>
+					
+						<a lang="sr-SP" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=sr-SP">српски</a>
+					
+						<a lang="sv-SE" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=sv-SE">svenska</a>
+					
+						<a lang="ko-KR" class="item " href="/CIS356/SingleCycleMIPS/src/branch/master/ALU.dig?lang=ko-KR">한국어</a>
+					
+				</div>
+			</div>
+			<a href="/vendor/librejs.html" data-jslicense="1">JavaScript licenses</a>
+			<a href="/api/swagger">API</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://gitea.io">Website</a>
+			
+			<span class="version">Go1.13.6</span>
+		</div>
+	</div>
+</footer>
+
+
+	<script src="/vendor/plugins/jquery/jquery.min.js?v=3.4.1"></script>
+	<script src="/vendor/plugins/jquery-migrate/jquery-migrate.min.js?v=3.0.1"></script>
+	<script src="/vendor/plugins/jquery.areyousure/jquery.are-you-sure.js"></script>
+
+
+
+
+	<script src="/vendor/plugins/highlight/highlight.pack.js"></script>
+
+
+
+
+
+
+
+	<script src="/vendor/plugins/emojify/emojify.custom.js"></script>
+	<script src="/vendor/plugins/clipboard/clipboard.min.js"></script>
+	<script src="/vendor/plugins/vue/vue.min.js"></script>
+
+	
+	<script src="/vendor/plugins/fomantic/semantic.min.js?v=fc7274467e96507fad7018bd7d830513"></script>
+	<script src="/js/index.js?v=fc7274467e96507fad7018bd7d830513"></script>
+
+
+</body>
+</html>
+

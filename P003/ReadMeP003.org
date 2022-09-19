@@ -1,0 +1,19 @@
+Chris Rose - P003
+
+We are asked to make an 8 way multiplexer and an 8 way demultiplexer 
+out of 1 bit multiplexers and demltiplexers that we made ourselves.
+
+The test case for 8wayMUX.dig looks like this:
+
+I_7 I_6 I_5 I_4 I_3 I_2 I_1 I_0 S Out
+loop(i, 256)
+	bits(8,i) 7 bits(1, i>>7)
+end loop
+
+And it passes
+The test case for 8wayDMUX.dig looks like this:
+
+S I O_0 O_1 O_2 O_3 O_4 O_5 O_6 O_7
+loop(i, 256)
+	7 bits(1, i>>7) bits(8, i)
+end loop

@@ -1,0 +1,8 @@
+Assembly Languages P005
+Program Coutner
+Chris Rose
+
+In my circuit I have reset and load as the selector bit to two MUXs.
+If load is set then it loads the value of D, otherwise it adds 4 to the loaded address.
+Then if reset is set, it loads 0 into the output, otherwise it allows D to pass through.
+In order to change the priority of the inputs, i would change the order of the MUXs.

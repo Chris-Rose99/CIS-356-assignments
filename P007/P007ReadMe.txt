@@ -1,0 +1,13 @@
+# ReadMe P007
+# Chirstopher Rose
+# Sorted Array of integers
+
+We were tasked to create a program that had us fill an array that it would sort, then 
+print it with the sum of the elements. In order to compile 
+and run this program, you must load it into SpimQT,
+hit compile and then run it. The program will repeatedly tell you to
+give it an integer until each array is full or you enter a negative integer.
+That negative integer works as the sentinel value, meaning it's technically in the array
+but is not acknowledged the the methods. It's only there to mark the end of the array.
+Once it is full, it will display the sum and the sorted array.
+Inputing anything other than an integer will result in an error.
